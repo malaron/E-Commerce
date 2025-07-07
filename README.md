@@ -80,10 +80,10 @@ This project is an e-commerce platform built using CQRS (Command Query Responsib
 * status (pending, shipped, delivered, etc.)
 
 ### Order Items Table
-id (primary key)
-order_id (foreign key referencing the Orders table)
-product_id (foreign key referencing the Products table)
-quantity
+* id (primary key)
+* order_id (foreign key referencing the Orders table)
+* product_id (foreign key referencing the Products table)
+* quantity
 
 ## Event Store
 * Events Table

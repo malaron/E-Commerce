@@ -1,8 +1,7 @@
 # PersonalFinance
 
-# Language: C#
 
-# Personal Finance Tracker Project Overview
+## Personal Finance Tracker Project Overview
 The Personal Finance Tracker is a web application designed to help users manage their finances effectively. The application allows users to track their income, expenses, budgets, and savings goals.
 
 ## Technologies Used

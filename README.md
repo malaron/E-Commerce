@@ -1,9 +1,7 @@
-# PersonalFinance
+# E-Commerce Platform with CQRS and Event Sourcing
 
-# Language: C#
-
-# Personal Finance Tracker Project Overview
-The Personal Finance Tracker is a web application designed to help users manage their finances effectively. The application allows users to track their income, expenses, budgets, and savings goals.
+## Overview
+This project is an e-commerce platform built using CQRS (Command Query Responsibility Segregation) and Event Sourcing. The platform allows users to create accounts, add products to their carts, and place orders. The admin area provides features for managing users, products, orders, and reporting.
 
 ## Technologies Used
 * C#
@@ -12,90 +10,84 @@ The Personal Finance Tracker is a web application designed to help users manage 
 * .NET Core API
 
 ## Features
-* User authentication
-* Income tracking
-* Expense tracking
-* Budgeting
-* Savings goals
-* Transaction history
-* Data visualization
+* User registration and login
+* Product catalog management
+* Shopping cart management
+* Order management
+* Payment processing
+* Event sourcing for auditing and debugging purposes
+* Admin area for managing users, products, orders, and reporting
+* Reporting features for sales, customers, products, and orders
 
-## Database Design
-Database Schema
-The database schema consists of the following tables:
-
-* Users: stores user information
-* IncomeSources: stores income sources
-* Expenses: stores expenses
-* Budgets: stores budgets
-* SavingsGoals: stores savings goals
-* Transactions: stores transactions
+## Technical Details
+* Built using C# and .NET Core
+* Uses CQRS and Event Sourcing for handling business logic and storing events
+* Utilizes a SQL Server database for storing data
+* Implements a RESTful API for interacting with the platform
+* Uses JSON Web Tokens (JWT) for authentication and authorization
 
 ## API Endpoints
-### User Endpoints
-* POST /api/users - Create user
-* GET /api/users/{id} - Get user by id
-* PUT /api/users/{id} - Update user
-* DELETE /api/users/{id} - Delete user
+### Admin API
+* GET /api/admin/users: Get a list of all users
+* GET /api/admin/users/{id}: Get a user by ID
+* POST /api/admin/users: Create a new user
+* PUT /api/admin/users/{id}: Update a user
+* DELETE /api/admin/users/{id}: Delete a user
+* GET /api/admin/products: Get a list of all products
+* GET /api/admin/products/{id}: Get a product by ID
+* POST /api/admin/products: Create a new product
+* PUT /api/admin/products/{id}: Update a product
+* DELETE /api/admin/products/{id}: Delete a product
+* GET /api/admin/orders: Get a list of all orders
+* GET /api/admin/orders/{id}: Get an order by ID
+* POST /api/admin/orders: Create a new order
+* PUT /api/admin/orders/{id}: Update an order
+* DELETE /api/admin/orders/{id}: Delete an order
 
-### Income Endpoints
-* GET /api/income - Get all income sources
-* POST /api/income - Create income source
-* GET /api/income/{id} - Get income source by id
-* PUT /api/income/{id} - Update income source
-* DELETE /api/income/{id} - Delete income source
+### User API
+* GET /api/users/orders: Get a list of all orders for the current user
+* GET /api/users/orders/{id}: Get an order by ID for the current user
+* POST /api/users/orders: Create a new order for the current user
+* PUT /api/users/orders/{id}: Update an order for the current user
+* DELETE /api/users/orders/{id}: Delete an order for the current user
 
-### Expense Endpoints
-* GET /api/expenses - Get all expenses
-* POST /api/expenses - Create expense
-* GET /api/expenses/{id} - Get expense by id
-* PUT /api/expenses/{id} - Update expense
-* DELETE /api/expenses/{id} - Delete expense
+## Reporting API
+* GET /api/reports/sales: Get sales data for a given date range
+* GET /api/reports/customers: Get customer data for a given date range
+* GET /api/reports/products: Get product data for a given date range
+* GET /api/reports/orders: Get order data for a given date range
 
-### Budget Endpoints
-* GET /api/budgets - Get all budgets
-* POST /api/budgets - Create budget
-* GET /api/budgets/{id} - Get budget by id
-* PUT /api/budgets/{id} - Update budget
-* DELETE /api/budgets/{id} - Delete budget
+## Database Schema
+### Users Table
+* id (primary key)
+* username
+* email
+* password
+* role (admin or user)
 
-### Savings Goal Endpoints
-* GET /api/savings-goals - Get all savings goals
-* POST /api/savings-goals - Create savings goal
-* GET /api/savings-goals/{id} - Get savings goal by id
-* PUT /api/savings-goals/{id} - Update savings goal
-* DELETE /api/savings-goals/{id} - Delete savings goal
+### Products Table
+* id (primary key)
+* name
+* description
+* price
+* inventory_level
 
-### Transaction Endpoints
-* GET /api/transactions - Get all transactions
-* POST /api/transactions - Create transaction
-* GET /api/transactions/{id} - Get transaction by id
-* PUT /api/transactions/{id} - Update transaction
-* DELETE /api/transactions/{id} - Delete transaction
+### Orders Table
+* id (primary key)
+* user_id (foreign key referencing the Users table)
+* order_date
+* total
+* status (pending, shipped, delivered, etc.)
 
-## React Frontend
-### Components
-* User Profile
-* Income Tracker
-* Expense Tracker
-* Budget Tracker
-* Savings Goal Tracker
-* Transaction History
-  
-### Pages
-* Dashboard
-* Income
-* Expenses
-* Budgets
-* Savings Goals
-* Transactions
-  
-## Tasks
-* Set up .NET Core API project
-* Implement user authentication using .NET Core Identity
-* Create database schema
-* Implement API endpoints
-* Build React frontend
-* Integrate React frontend with API
-* Integrate NUnit testing
-* Test and debug application
+### Order Items Table
+id (primary key)
+order_id (foreign key referencing the Orders table)
+product_id (foreign key referencing the Products table)
+quantity
+
+## Event Store
+* Events Table
+* id (primary key)
+* event_type (e.g. OrderPlaced, ProductAdded, etc.)
+* event_data (JSON data containing event details)
+* created_at (timestamp when event was created)

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace PersonalFinance.Server.Controllers
+namespace ECommerce.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

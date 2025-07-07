@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using PersonalFinance.Server.Data;
+using ECommerce.Server.Data;
 
-namespace PersonalFinance.Server
+namespace ECommerce.Server
 {
     public class Program
     {
@@ -36,7 +36,7 @@ namespace PersonalFinance.Server
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Personal_Finance", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "E-Commerce", Version = "v1" });
             });
 
             services.AddEndpointsApiExplorer();

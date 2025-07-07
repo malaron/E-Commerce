@@ -1,6 +1,0 @@
-@PersonalFinance.Server_HostAddress = http://localhost:5173
-
-GET {{PersonalFinance.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

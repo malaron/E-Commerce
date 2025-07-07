@@ -1,4 +1,4 @@
-namespace PersonalFinance.Server
+namespace ECommerce.Server
 {
     public class WeatherForecast
     {

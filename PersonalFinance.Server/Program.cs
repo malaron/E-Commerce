@@ -1,31 +1,52 @@
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using PersonalFinance.Server.Data;
 
 namespace PersonalFinance.Server
 {
     public class Program
     {
+        static string ConnectionString { get; set; } = null!;
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
+
+            ConfigureServices(builder.Services);
+
+            WebApplication app = builder.Build();
+
+            ConfigureApp(app);
+
+            app.Run();
+        }
+
+        public static void ConfigureServices(IServiceCollection services)
+        {
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            services.AddControllers();
 
-            builder.Services.AddSwaggerGen(c =>
+
+            services.AddDbContext<AppDBContext>(options => options.UseSqlServer(ConnectionString));
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Personal_Finance", Version = "v1" });
             });
 
-            builder.Services.AddEndpointsApiExplorer();
+            services.AddEndpointsApiExplorer();
 
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
+            services.AddOpenApi();
+        }
 
-            var app = builder.Build();
-
+        public static void ConfigureApp(WebApplication app)
+        {
             app.UseDefaultFiles();
             app.MapStaticAssets();
 
@@ -45,8 +66,6 @@ namespace PersonalFinance.Server
 
             app.MapFallbackToFile("/index.html");
 
-            
-            app.Run();
         }
     }
 }

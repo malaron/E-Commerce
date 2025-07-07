@@ -33,45 +33,45 @@ The database schema consists of the following tables:
 
 ## API Endpoints
 ### User Endpoints
-POST /api/users - Create user
-GET /api/users/{id} - Get user by id
-PUT /api/users/{id} - Update user
-DELETE /api/users/{id} - Delete user
+* POST /api/users - Create user
+* GET /api/users/{id} - Get user by id
+* PUT /api/users/{id} - Update user
+* DELETE /api/users/{id} - Delete user
 
 ### Income Endpoints
-GET /api/income - Get all income sources
-POST /api/income - Create income source
-GET /api/income/{id} - Get income source by id
-PUT /api/income/{id} - Update income source
-DELETE /api/income/{id} - Delete income source
+* GET /api/income - Get all income sources
+* POST /api/income - Create income source
+* GET /api/income/{id} - Get income source by id
+* PUT /api/income/{id} - Update income source
+* DELETE /api/income/{id} - Delete income source
 
 ### Expense Endpoints
-GET /api/expenses - Get all expenses
-POST /api/expenses - Create expense
-GET /api/expenses/{id} - Get expense by id
-PUT /api/expenses/{id} - Update expense
-DELETE /api/expenses/{id} - Delete expense
+* GET /api/expenses - Get all expenses
+* POST /api/expenses - Create expense
+* GET /api/expenses/{id} - Get expense by id
+* PUT /api/expenses/{id} - Update expense
+* DELETE /api/expenses/{id} - Delete expense
 
 ### Budget Endpoints
-GET /api/budgets - Get all budgets
-POST /api/budgets - Create budget
-GET /api/budgets/{id} - Get budget by id
-PUT /api/budgets/{id} - Update budget
-DELETE /api/budgets/{id} - Delete budget
+* GET /api/budgets - Get all budgets
+* POST /api/budgets - Create budget
+* GET /api/budgets/{id} - Get budget by id
+* PUT /api/budgets/{id} - Update budget
+* DELETE /api/budgets/{id} - Delete budget
 
 ### Savings Goal Endpoints
-GET /api/savings-goals - Get all savings goals
-POST /api/savings-goals - Create savings goal
-GET /api/savings-goals/{id} - Get savings goal by id
-PUT /api/savings-goals/{id} - Update savings goal
-DELETE /api/savings-goals/{id} - Delete savings goal
+* GET /api/savings-goals - Get all savings goals
+* POST /api/savings-goals - Create savings goal
+* GET /api/savings-goals/{id} - Get savings goal by id
+* PUT /api/savings-goals/{id} - Update savings goal
+* DELETE /api/savings-goals/{id} - Delete savings goal
 
 ### Transaction Endpoints
-GET /api/transactions - Get all transactions
-POST /api/transactions - Create transaction
-GET /api/transactions/{id} - Get transaction by id
-PUT /api/transactions/{id} - Update transaction
-DELETE /api/transactions/{id} - Delete transaction
+* GET /api/transactions - Get all transactions
+* POST /api/transactions - Create transaction
+* GET /api/transactions/{id} - Get transaction by id
+* PUT /api/transactions/{id} - Update transaction
+* DELETE /api/transactions/{id} - Delete transaction
 
 ## React Frontend
 ### Components
@@ -81,6 +81,7 @@ DELETE /api/transactions/{id} - Delete transaction
 * Budget Tracker
 * Savings Goal Tracker
 * Transaction History
+  
 ### Pages
 * Dashboard
 * Income
@@ -88,7 +89,7 @@ DELETE /api/transactions/{id} - Delete transaction
 * Budgets
 * Savings Goals
 * Transactions
-* 
+  
 ## Tasks
 * Set up .NET Core API project
 * Implement user authentication using .NET Core Identity

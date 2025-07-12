@@ -1,3 +1,4 @@
+using Marten;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Server.Controllers

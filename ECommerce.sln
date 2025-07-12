@@ -10,8 +10,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ecommerce.data", "ecommerce.data\ecommerce.data.csproj", "{20B630D7-BF87-4196-A16E-6C7A20C16BF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedContracts", "SharedContracts\SharedContracts.csproj", "{2E4C5887-F20C-4FE5-BB4F-68EDE853A4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{AA12BB05-95E6-4875-8658-F421169AFCAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +36,18 @@ Global
 		{42905EC8-9E72-497B-B506-22610571BF19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42905EC8-9E72-497B-B506-22610571BF19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42905EC8-9E72-497B-B506-22610571BF19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20B630D7-BF87-4196-A16E-6C7A20C16BF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B630D7-BF87-4196-A16E-6C7A20C16BF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B630D7-BF87-4196-A16E-6C7A20C16BF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B630D7-BF87-4196-A16E-6C7A20C16BF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4C5887-F20C-4FE5-BB4F-68EDE853A4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4C5887-F20C-4FE5-BB4F-68EDE853A4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4C5887-F20C-4FE5-BB4F-68EDE853A4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4C5887-F20C-4FE5-BB4F-68EDE853A4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA12BB05-95E6-4875-8658-F421169AFCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA12BB05-95E6-4875-8658-F421169AFCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA12BB05-95E6-4875-8658-F421169AFCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA12BB05-95E6-4875-8658-F421169AFCAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

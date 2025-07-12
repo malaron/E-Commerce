@@ -27,35 +27,41 @@ This project is an e-commerce platform built using CQRS (Command Query Responsib
 * Uses JSON Web Tokens (JWT) for authentication and authorization
 
 ## API Endpoints
+### Shared API
+* POST /Account/Login: Log into app (regardless of role)
+* POST /Account/Logout: Log out of app
+* POST /Account/Register
+
+
 ### Admin API
-* GET /api/admin/users: Get a list of all users
-* GET /api/admin/users/{id}: Get a user by ID
-* POST /api/admin/users: Create a new user
-* PUT /api/admin/users/{id}: Update a user
-* DELETE /api/admin/users/{id}: Delete a user
-* GET /api/admin/products: Get a list of all products
-* GET /api/admin/products/{id}: Get a product by ID
-* POST /api/admin/products: Create a new product
-* PUT /api/admin/products/{id}: Update a product
-* DELETE /api/admin/products/{id}: Delete a product
-* GET /api/admin/orders: Get a list of all orders
-* GET /api/admin/orders/{id}: Get an order by ID
-* POST /api/admin/orders: Create a new order
-* PUT /api/admin/orders/{id}: Update an order
-* DELETE /api/admin/orders/{id}: Delete an order
+* GET /admin/users: Get a list of all users
+* GET /admin/users/{id}: Get a user by ID
+* POST /admin/users: Create a new user
+* PUT /admin/users/{id}: Update a user
+* DELETE /admin/users/{id}: Delete a user
+* GET /admin/products: Get a list of all products
+* GET /admin/products/{id}: Get a product by ID
+* POST /admin/products: Create a new product
+* PUT /admin/products/{id}: Update a product
+* DELETE /admin/products/{id}: Delete a product
+* GET /admin/orders: Get a list of all orders
+* GET /admin/orders/{id}: Get an order by ID
+* POST /admin/orders: Create a new order
+* PUT /admin/orders/{id}: Update an order
+* DELETE /admin/orders/{id}: Delete an order
 
 ### User API
-* GET /api/users/orders: Get a list of all orders for the current user
-* GET /api/users/orders/{id}: Get an order by ID for the current user
-* POST /api/users/orders: Create a new order for the current user
-* PUT /api/users/orders/{id}: Update an order for the current user
-* DELETE /api/users/orders/{id}: Delete an order for the current user
+* GET /users/orders: Get a list of all orders for the current user
+* GET /users/orders/{id}: Get an order by ID for the current user
+* POST /users/orders: Create a new order for the current user
+* PUT /users/orders/{id}: Update an order for the current user
+* DELETE /users/orders/{id}: Delete an order for the current user
 
 ## Reporting API
-* GET /api/reports/sales: Get sales data for a given date range
-* GET /api/reports/customers: Get customer data for a given date range
-* GET /api/reports/products: Get product data for a given date range
-* GET /api/reports/orders: Get order data for a given date range
+* GET /reports/sales: Get sales data for a given date range
+* GET /reports/customers: Get customer data for a given date range
+* GET /reports/products: Get product data for a given date range
+* GET /reports/orders: Get order data for a given date range
 
 ## Database Schema
 ### Users Table

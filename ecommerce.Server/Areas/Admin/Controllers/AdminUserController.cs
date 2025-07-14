@@ -13,9 +13,9 @@ namespace ecommerce.Server.Areas.Admin.Controllers
     public class AdminUserController : ControllerBase
     {
 
-        private readonly UserAdminService _userAdmin;
+        private readonly UserAdminService<ApplicationUser> _userAdmin;
 
-        public AdminUserController(UserAdminService userAdmin)
+        public AdminUserController(UserAdminService<ApplicationUser> userAdmin)
         {
             _userAdmin = userAdmin;
         }

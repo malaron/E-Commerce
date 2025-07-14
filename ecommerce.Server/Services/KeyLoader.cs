@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
@@ -7,7 +8,7 @@ namespace ecommerce.Server.Services
 {
     public class KeyLoader
     {
-        private static string _solutionRoot = Directory.GetParent(Directory.GetCurrentDirectory())?.FullName!;
+        private static string _solutionRoot = Assembly.GetExecutingAssembly().GetApplicationRoot();
         private static string _privateKeyPath = Path.Combine(_solutionRoot, "private_key.pem");
         private static string _publicKeyPath = Path.Combine(_solutionRoot, "public_key.pem");
 

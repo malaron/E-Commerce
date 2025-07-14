@@ -42,10 +42,9 @@ namespace ECommerce.Server
             RSA rsa = RSA.Create();
             rsa.ImportSubjectPublicKeyInfo(rsaKeys.PublicKeyBytes, out _);
             RSAParameters rsaParameters = rsa.ExportParameters(false);
-
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
-
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -54,9 +53,7 @@ namespace ECommerce.Server
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = "test.com",
                     ValidAudience = "test.com",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super_secret_key_goes_here_hope_its_big_enough"))
-
-                    //                    IssuerSigningKey = new RsaSecurityKey(rsaParameters)
+                    IssuerSigningKey = new RsaSecurityKey(rsaParameters)
                 };
             });
 

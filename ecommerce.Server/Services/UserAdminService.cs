@@ -1,39 +1,38 @@
 ﻿using AutoMapper;
 using ecommerce.Server.Services;
-using eCommerce.Data;
 using Marten;
-using Marten.AspNetIdentity;
 using Microsoft.AspNetCore.Identity;
 using SharedContracts;
 using SharedContracts.Enum;
 using SharedContracts.Exceptions;
-using static SharedContracts.Events;
 
 namespace eCommerce.Server.Services
 {
-    public class UserAdminService
+    public class UserAdminService<T> where T : ApplicationUser, new()
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<T> _userManager;
+        private readonly SignInManager<T> _signInManager;
         private readonly IDocumentStore _documentStore;
         private readonly IMapper _mapper;
-        private readonly ECommerceUserStore<ApplicationUser> _userStore;
-        private readonly ILogger<ECommerceUserStore<ApplicationUser>> _logger;
+        private readonly ECommerceUserStore<T> _userStore;
+        private readonly ILogger<ECommerceUserStore<T>> _logger;
 
-        public UserAdminService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IDocumentStore documentStore, IMapper mapper, ILogger<ECommerceUserStore<ApplicationUser>> logger)
+        public SignInManager<T> SignInManager => _signInManager;
+
+        public UserAdminService(UserManager<T> userManager, SignInManager<T> signInManager, IDocumentStore documentStore, IMapper mapper, ILogger<ECommerceUserStore<T>> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _documentStore = documentStore;
             _mapper = mapper;
             _logger = logger;
-            _userStore = new ECommerceUserStore<ApplicationUser>(_documentStore, _logger);
+            _userStore = new ECommerceUserStore<T>(_documentStore, _logger);
 
         }
 
         public async Task<UserCreationResponseDTO> RegisterUser(UserCreationRequestDTO user)
         {
-            ApplicationUser appUser = new()
+            T appUser = new()
             {
                 UserName = user.Email,
                 Email = user.Email,
@@ -90,24 +89,24 @@ namespace eCommerce.Server.Services
         {
             IDocumentSession documentSession = _documentStore.LightweightSession();
 
-            var users = await documentSession.Query<ApplicationUser>().ToListAsync();
+            
+            var users = await documentSession.Query<T>().ToListAsync();
 
             return _mapper.Map<List<UserDTO>>(users);
         }
 
         public async Task<UserDTO> UpdateUser(UserDTO user)
         {
-            UserFirstNameUpdated userFirstNameUpdated = new(user.FirstName);
-            UserLastNameUpdated userLastNameUpdated = new(user.LastName);
-            UserEmailUpdated userEmailUpdated = new(user.Email);
+            T? storedUser = await _userManager.FindByIdAsync(user.Id.ToString()) ?? throw new UserNotFoundException();
 
-            IDocumentSession documentSession = _documentStore.LightweightSession();
+            _mapper.Map(user, storedUser);
 
-            documentSession.Events.StartStream<ApplicationUser>(user.Id, userFirstNameUpdated, userLastNameUpdated, userEmailUpdated);
+            IdentityResult result = await _userManager.UpdateAsync(storedUser);
 
-            await documentSession.SaveChangesAsync();
+            T? updatedUser = await _userManager.FindByIdAsync(user.Id.ToString());
 
-            return user;
+            UserDTO userDTO = _mapper.Map<UserDTO>(updatedUser);
+            return userDTO;
         }
     }
 }

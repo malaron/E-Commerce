@@ -7,7 +7,7 @@ namespace ecommerce.Server.Services.MappingProfiles
     {
         public MappingProfile()
         {
-            CreateMap<ApplicationUser, UserDTO>();
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
         }
     }
 }

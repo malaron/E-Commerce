@@ -12,21 +12,25 @@ namespace ecommerce.Server.Controllers
     public class AccountController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly UserAdminService _adminService;
+        private readonly UserAdminService<ApplicationUser> _adminService;
 
-        public AccountController(UserAdminService adminService, ILogger<AccountController> logger)
+        public AccountController(UserAdminService<ApplicationUser> adminService, ILogger<AccountController> logger)
         {
             _logger = logger;
             _adminService = adminService;
         }
 
         [HttpPost]
-        public async Task<string> Logout()
+        public async Task<IActionResult> Logout()
         {
             await _adminService.Logout();
             _logger.LogInformation("User logged out.");
             Response.Cookies.Delete(".AspNetCore.Identity.Application");
-            return "Logged out";
+            return BadRequest(new
+            {
+                Message = "User logged out."
+            });
+
         }
 
         [HttpPost]

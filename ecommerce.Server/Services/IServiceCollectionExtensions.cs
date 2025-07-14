@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using ecommerce.Server.Services;
 using eCommerce.Server.Services;
+using SharedContracts;
 
 namespace eCommerce.Services
 {
@@ -8,7 +8,7 @@ namespace eCommerce.Services
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<UserAdminService>();
+            services.AddScoped<UserAdminService<ApplicationUser>>();
             services.AddScoped<IMapper, Mapper>();
             return services;
         }

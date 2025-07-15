@@ -1,6 +1,7 @@
 # E-Commerce Platform with CQRS and Event Sourcing
 
 ## Overview
+The intent of this project is to learn new technologies while building something fun. I picked Marten for the event store as it would make development easier while helping me understand that event store workflow. Through Marten I discovered Alba and Wolverine which were both made by the same company and decided to try out their "critter stack".
 This project is an e-commerce platform built using CQRS (Command Query Responsibility Segregation) and Event Sourcing. The platform allows users to create accounts, add products to their carts, and place orders. The admin area provides features for managing users, products, orders, and reporting.
 
 ## Technologies Used
@@ -28,40 +29,40 @@ This project is an e-commerce platform built using CQRS (Command Query Responsib
 
 ## API Endpoints
 ### Shared API
-* POST /Account/Login: Log into app (regardless of role)
-* POST /Account/Logout: Log out of app
-* POST /Account/Register
+- [x] POST /Account/Login: Log into app (regardless of role)
+- [x] POST /Account/Logout: Log out of app
+- [x] POST /Account/Register
 
 
 ### Admin API
-* GET /admin/users: Get a list of all users
-* GET /admin/users/{id}: Get a user by ID
-* POST /admin/users: Create a new user
-* PUT /admin/users/{id}: Update a user
-* DELETE /admin/users/{id}: Delete a user
-* GET /admin/products: Get a list of all products
-* GET /admin/products/{id}: Get a product by ID
-* POST /admin/products: Create a new product
-* PUT /admin/products/{id}: Update a product
-* DELETE /admin/products/{id}: Delete a product
-* GET /admin/orders: Get a list of all orders
-* GET /admin/orders/{id}: Get an order by ID
-* POST /admin/orders: Create a new order
-* PUT /admin/orders/{id}: Update an order
-* DELETE /admin/orders/{id}: Delete an order
+- [ ] GET /admin/users: Get a list of all users
+- [ ] GET /admin/users/{id}: Get a user by ID
+- [ ] POST /admin/users: Create a new user
+- [ ] PUT /admin/users/{id}: Update a user
+- [ ] DELETE /admin/users/{id}: Delete a user
+- [ ] GET /admin/products: Get a list of all products
+- [ ] GET /admin/products/{id}: Get a product by ID
+- [ ] POST /admin/products: Create a new product
+- [ ] PUT /admin/products/{id}: Update a product
+- [ ] DELETE /admin/products/{id}: Delete a product
+- [ ] GET /admin/orders: Get a list of all orders
+- [ ] GET /admin/orders/{id}: Get an order by ID
+- [ ] POST /admin/orders: Create a new order
+- [ ] PUT /admin/orders/{id}: Update an order
+- [ ] DELETE /admin/orders/{id}: Delete an order
 
 ### User API
-* GET /users/orders: Get a list of all orders for the current user
-* GET /users/orders/{id}: Get an order by ID for the current user
-* POST /users/orders: Create a new order for the current user
-* PUT /users/orders/{id}: Update an order for the current user
-* DELETE /users/orders/{id}: Delete an order for the current user
+- [ ] GET /users/orders: Get a list of all orders for the current user
+- [ ] GET /users/orders/{id}: Get an order by ID for the current user
+- [ ] POST /users/orders: Create a new order for the current user
+- [ ] PUT /users/orders/{id}: Update an order for the current user
+- [ ] DELETE /users/orders/{id}: Delete an order for the current user
 
 ## Reporting API
-* GET /reports/sales: Get sales data for a given date range
-* GET /reports/customers: Get customer data for a given date range
-* GET /reports/products: Get product data for a given date range
-* GET /reports/orders: Get order data for a given date range
+- [ ] GET /reports/sales: Get sales data for a given date range
+- [ ] GET /reports/customers: Get customer data for a given date range
+- [ ] GET /reports/products: Get product data for a given date range
+- [ ] GET /reports/orders: Get order data for a given date range
 
 ## Database Schema
 ### Users Table
@@ -70,6 +71,15 @@ This project is an e-commerce platform built using CQRS (Command Query Responsib
 * email
 * password
 * role (admin or user)
+
+### Vendors Table
+* id (primary key)
+* vendor name
+
+### VendorsUsers Table
+* id (primary key)
+* vendor_id (foreign key referencing the vendors table)
+* user_id (foreign key referencing the users table)
 
 ### Products Table
 * id (primary key)

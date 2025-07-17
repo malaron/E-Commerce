@@ -1,5 +1,6 @@
 using Marten;
 using Microsoft.AspNetCore.Mvc;
+using Wolverine.Http;
 
 namespace ECommerce.Server.Controllers
 {
@@ -19,8 +20,8 @@ namespace ECommerce.Server.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [WolverineGet("GetWeatherForecast")]
+        public static IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

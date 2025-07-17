@@ -51,6 +51,11 @@ This project is an e-commerce platform built using CQRS (Command Query Responsib
 - [ ] PUT /admin/orders/{id}: Update an order
 - [ ] DELETE /admin/orders/{id}: Delete an order
 
+### Vendor API
+- [ ] GET /vendor/users: Get a list of users for this vendor
+- [ ] POST /vendor/users: Make an existing user a vendor (should be some sort of 2 way agreement)
+- [ ] DELETE /vendor/users/{id}: Remove a user from your vendor group
+
 ### User API
 - [ ] GET /users/orders: Get a list of all orders for the current user
 - [ ] GET /users/orders/{id}: Get an order by ID for the current user

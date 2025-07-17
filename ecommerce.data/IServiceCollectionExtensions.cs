@@ -1,8 +1,12 @@
-﻿using JasperFx;
+﻿using ImTools;
+using JasperFx;
+using JasperFx.Events.Daemon;
 using JasperFx.Events.Projections;
 using Marten;
+using Marten.Events.Projections;
 using Microsoft.Extensions.DependencyInjection;
-using SharedContracts;
+using Wolverine.Marten;
+
 
 namespace eCommerce.Data
 {
@@ -16,15 +20,16 @@ namespace eCommerce.Data
             {
                 options.UseSystemTextJsonForSerialization();
 
-                // This is part of the sample, can be removed later
-                options.Projections.Add<UserProjection>(ProjectionLifecycle.Inline);
+                options.Projections.Add<ProductProjection>(ProjectionLifecycle.Inline);
 
                 if (isDevelopment)
                 {
                     options.AutoCreateSchemaObjects = AutoCreate.All;
                 }
-            }).UseNpgsqlDataSource();
-
+            }).UseNpgsqlDataSource().IntegrateWithWolverine(options =>
+            {
+                options.UseFastEventForwarding = true;
+            });
 
             return serviceCollection;
         }

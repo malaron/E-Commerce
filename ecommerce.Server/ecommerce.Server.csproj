@@ -62,7 +62,6 @@
     <PackageReference Include="AutoMapper" Version="15.0.1" />
     <PackageReference Include="Marten" Version="8.3.2" />
     <PackageReference Include="Marten.AspNetCore" Version="8.3.2" />
-    <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
@@ -87,9 +86,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+    <PackageReference Include="WolverineFx" Version="4.5.3" />
+    <PackageReference Include="WolverineFx.Http" Version="4.5.3" />
+    <PackageReference Include="WolverineFx.Http.Marten" Version="4.5.3" />
+    <PackageReference Include="WolverineFx.Marten" Version="4.5.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -104,6 +108,9 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Vendor\Data\" />
+    <Folder Include="Areas\Vendor\Models\" />
+    <Folder Include="Areas\Vendor\Views\" />
     <Folder Include="Data\" />
   </ItemGroup>
 

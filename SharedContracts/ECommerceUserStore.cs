@@ -15,7 +15,5 @@ namespace SharedContracts
         public ECommerceUserStore(IDocumentStore documentStore, ILogger<ECommerceUserStore<TUser>> logger) : base(documentStore, logger)
         {
         }
-
-
     }
 }

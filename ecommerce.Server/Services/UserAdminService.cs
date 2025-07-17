@@ -27,7 +27,6 @@ namespace eCommerce.Server.Services
             _mapper = mapper;
             _logger = logger;
             _userStore = new ECommerceUserStore<T>(_documentStore, _logger);
-
         }
 
         public async Task<UserCreationResponseDTO> RegisterUser(UserCreationRequestDTO user)
